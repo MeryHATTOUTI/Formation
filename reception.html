@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les étapes de réception</title>
+    <link rel="stylesheet" href="receptionstyles.css">
+</head>
+<body>
+    <header>
+        <img src="med_waste_cover.jpg" alt="Logo de l'entreprise" class="logo">
+        <a href="accueil.html" class="home-icon">
+            <h3>Retour à l'accueil</h3>
+        </a>
+    </header>
+    <main>
+        <h1>Les étapes de réception</h1>
+        <div class="steps-container">
+            <button id="prevStep">⬅️</button>
+            <div class="step" id="step1">
+                <img src="déchargecamion.png" alt="Décharger le camion">
+                <p><strong>Décharger le camion :</strong> Décharger les conteneurs de déchets du camion à leur arrivée.</p>
+            </div>
+            <div class="step" id="step2">
+                <img src="Placer sur chariot .png" alt="Placer sur chariot">
+                <p><strong>Placer sur chariot :</strong> Transférer les conteneurs déchargés sur des chariots de transport.</p>
+            </div>
+            <div class="step" id="step3">
+                <img src="Peser sur la balance .png" alt="Peser sur la balance">
+                <p><strong>Peser sur la balance :</strong> Prendre le poids de chaque lot de déchets sur la balance.</p>
+            </div>
+            <div class="step" id="step4">
+                <img src="Transvaser.png" alt="Transvaser dans les grandes bennes">
+                <p><strong>Transvaser dans les grandes bennes :</strong> Verser les déchets collectés dans les grandes bennes pour traitement.</p>
+            </div>
+            <div class="step" id="step5">
+                <img src="chambre froide.png" alt="Transporter vers la chambre froide">
+                <p><strong>Transporter les grandes bennes vers la chambre froide :</strong> Déplacer les grandes bennes vers la chambre froide.</p>
+            </div>
+            <div class="step" id="step6">
+                <img src="désinfection.png" alt="Phase de désinfection">
+                <p><strong>Transporter les conteneurs vides vers la phase de désinfection </strong> </p>
+            </div>
+            <div class="step" id="step7">
+                <img src="lavage.png" alt="Phase de désinfection">
+                <p><strong>Acheminer les conteneurs vides vers la zone de lavage.</strong></p>
+            </div>
+            <div class="step" id="step8">
+                <img src="Séchage.png" alt="Sécher et contrôler">
+                <p><strong>Séchage et contrôle visuel :</strong> Vérifier l'état des conteneurs lavés.</p>
+            </div>
+            <div class="step" id="step9">
+                <img src="zone de préparation.png" alt="Zone de préparation">
+                <p><strong>Placer dans la zone de préparation :</strong> Disposer les conteneurs désinfectés dans la zone de stockage.</p>
+            </div>
+            <button id="nextStep">➡️</button>
+        </div>
+    </main>
+    <script>
+        let currentStep = 1;
+        const totalSteps = 9;
+
+        document.getElementById('prevStep').addEventListener('click', () => {
+            if (currentStep > 1) {
+                document.getElementById(`step${currentStep}`).style.display = 'none';
+                currentStep--;
+                document.getElementById(`step${currentStep}`).style.display = 'block';
+            }
+        });
+
+        document.getElementById('nextStep').addEventListener('click', () => {
+            if (currentStep < totalSteps) {
+                document.getElementById(`step${currentStep}`).style.display = 'none';
+                currentStep++;
+                document.getElementById(`step${currentStep}`).style.display = 'block';
+            }
+        });
+
+        document.querySelectorAll('.step').forEach((step, index) => {
+            if (index !== 0) step.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
